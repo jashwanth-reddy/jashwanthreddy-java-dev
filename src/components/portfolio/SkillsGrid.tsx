@@ -1,7 +1,6 @@
 
 import React from "react";
 import {
-  Java,
   Server,
   Database,
   Cloud,
@@ -9,16 +8,17 @@ import {
   Network,
   Settings2,
   Hammer,
-  Docker,
+  Dock,
   Box,
   LayoutGrid,
   Repeat2,
   Zap,
   ChevronRight,
-} from "lucide-react"; // bring in some relevant icons
+  Code2,
+} from "lucide-react"; // correct imports for available icons
 
 const skills = [
-  { name: "Java", icon: Java },
+  { name: "Java", icon: Code2 },
   { name: "Spring Boot", icon: Server },
   { name: "Microservices", icon: LayoutGrid },
   { name: "REST APIs", icon: Network },
@@ -26,7 +26,7 @@ const skills = [
   { name: "JPA/Hibernate", icon: Database },
   { name: "MySQL", icon: Database },
   { name: "Gradle", icon: Hammer },
-  { name: "Docker", icon: Docker },
+  { name: "Docker", icon: Dock },
   { name: "Git", icon: GitBranch },
   { name: "CI/CD", icon: Repeat2 },
   { name: "Agile", icon: Zap },
@@ -51,4 +51,3 @@ function SkillsGrid() {
 }
 
 export default SkillsGrid;
-
