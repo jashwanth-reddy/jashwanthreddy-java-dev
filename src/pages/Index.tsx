@@ -1,4 +1,3 @@
-
 import React from "react";
 import ProfilePhoto from "@/components/portfolio/ProfilePhoto";
 import SectionHeading from "@/components/portfolio/SectionHeading";
@@ -14,6 +13,8 @@ const EMAIL = "mr.jashwanthreddy@gmail.com";
 const PHONE = "8886093806";
 const LINKEDIN = "https://www.linkedin.com/in/jashwanth-reddy-karumudi";
 const GITHUB = "https://github.com/jashwanthreddy10";
+
+const PROFILE_IMG_URL = "https://i.postimg.cc/2jHNzHyP/jashuuu.jpg";
 
 const scrollToSection = (id: string) => {
   const el = document.getElementById(id);
@@ -82,7 +83,7 @@ const Index = () => {
             </Button>
           </div>
           <div className="mt-6 md:mt-0">
-            <ProfilePhoto className="w-40 h-40 md:w-48 md:h-48 mx-auto" />
+            <ProfilePhoto src={PROFILE_IMG_URL} className="w-40 h-40 md:w-48 md:h-48 mx-auto" />
           </div>
         </section>
 
@@ -93,7 +94,7 @@ const Index = () => {
         >
           <SectionHeading title="About Me" />
           <div className="flex flex-col md:flex-row gap-8 items-start">
-            <ProfilePhoto className="w-28 h-28 border-2 border-primary/30" />
+            <ProfilePhoto src={PROFILE_IMG_URL} className="w-28 h-28 border-2 border-primary/30" />
             <div>
               <p className="text-lg mb-4">
                 Java Backend Developer with 3+ years of experience and proven ability to independently deliver scalable backend applications using Java, Spring Boot, and AWS. Currently working at TCS as the sole backend developer for a mission-critical microservices-based system for a leading Australian telecom client. Certified in Spring Boot and DevOps, and skilled in REST APIs, CI/CD, and cloud-native deployment.
@@ -209,4 +210,3 @@ const Index = () => {
 };
 
 export default Index;
-
