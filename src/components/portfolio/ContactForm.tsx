@@ -3,7 +3,14 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
+const EMAILJS_SERVICE_ID = "service_jyav1pg";
+const EMAILJS_TEMPLATE_ID = "template_e2zs88b";
+const EMAILJS_PUBLIC_KEY = "h-w7zOw4QZ4zMY7K7";
+
+// Mapping form fields to EmailJS template variables: you must ensure your template
+// expects 'from_name', 'from_email', and 'message' (these are commonly used variable names).
 function ContactForm() {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -13,17 +20,40 @@ function ContactForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+
+    // Map form fields to template variables
+    const templateParams = {
+      from_name: form.name,
+      from_email: form.email,
+      message: form.message,
+    };
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
       toast({
         title: "Message Sent",
         description: "Thank you for reaching out! Jashwanth will get back to you soon.",
       });
       setForm({ name: "", email: "", message: "" });
-    }, 1000);
+    } catch (error) {
+      toast({
+        title: "Message Failed",
+        description: "There was an error sending your message. Please try again later.",
+        variant: "destructive",
+      });
+      // Optional: You can console log the error for debugging
+      // console.error("EmailJS error:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -69,4 +99,3 @@ function ContactForm() {
 }
 
 export default ContactForm;
-
