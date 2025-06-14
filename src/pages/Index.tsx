@@ -72,7 +72,8 @@ const Index = () => {
               Java Backend Developer
             </h2>
             <p className="max-w-xl text-muted-foreground text-base md:text-lg mb-4">
-              Building scalable backend solutions with Spring Boot and AWS.
+              Expert in developing microservices, REST APIs, and high-performance backend systems.<br />
+              Tech stack includes Java, Spring Boot, AWS, Docker, MySQL, and CI/CD for enterprise-scale solutions.
             </p>
             <Button
               size="lg"
